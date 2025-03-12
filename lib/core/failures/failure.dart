@@ -5,9 +5,3 @@ class Failure {
   @override
   String toString() => 'Failure(message:$message)';
 }
-
-class ServerFailure extends Failure {
-  ServerFailure({
-    required super.message,
-  });
-}

@@ -4,12 +4,12 @@ import 'package:quiz_api_project_wc/core/usecase/use_case.dart';
 import 'package:quiz_api_project_wc/features/quiz/domain/entities/quiz_response.dart';
 import 'package:quiz_api_project_wc/features/quiz/domain/repository/quiz_repository.dart';
 
-class UseCaseImpl implements UseCase<QuizResponse, QuizParam> {
+class GetQuizUseCase implements UseCase<QuizResponse, QuizParam> {
   final QuizRepository quizRepository;
 
-  UseCaseImpl({required this.quizRepository});
+  GetQuizUseCase({required this.quizRepository});
   @override
   Future<Either<Failure, QuizResponse>> call(QuizParam param) {
-    return quizRepository.fetchQuiz(param.amount, param.type);
+    return quizRepository.getQuiz(param.amount, param.type);
   }
 }

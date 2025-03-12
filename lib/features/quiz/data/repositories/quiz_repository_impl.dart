@@ -10,8 +10,7 @@ class QuizRepositoryImpl extends QuizRepository {
   QuizRepositoryImpl({required this.quizRemoteDataSource});
 
   @override
-  Future<Either<Failure, QuizResponse>> fetchQuiz(
-      int amount, String type) async {
+  Future<Either<Failure, QuizResponse>> getQuiz(int amount, String type) async {
     try {
       final response = await quizRemoteDataSource.getQuiz(amount, type);
       return right(response);

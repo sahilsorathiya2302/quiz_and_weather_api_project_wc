@@ -1,12 +1,12 @@
 import 'package:quiz_api_project_wc/features/quiz/domain/entities/quiz_response.dart';
-import 'package:quiz_api_project_wc/services/api_service.dart';
+import 'package:quiz_api_project_wc/services/quiz_api_service.dart';
 
 class QuizRemoteDataSource {
-  final ApiService apiServices;
+  final QuizApiService quizApiService;
 
-  QuizRemoteDataSource({required this.apiServices});
+  QuizRemoteDataSource({required this.quizApiService});
 
   Future<QuizResponse> getQuiz(int amount, String type) async {
-    return await apiServices.fetchQuiz(amount, type);
+    return await quizApiService.getQuiz(amount, type);
   }
 }

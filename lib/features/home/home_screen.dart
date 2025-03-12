@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_api_project_wc/features/home/widget/logo_widget.dart';
 import 'package:quiz_api_project_wc/features/home/widget/start_button.dart';
 import 'package:quiz_api_project_wc/features/home/widget/weather_button.dart';
 
@@ -16,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          LogoWidget(),
           Center(child: StartButton()),
           WeatherButton(),
         ],

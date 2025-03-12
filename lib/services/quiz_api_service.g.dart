@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'api_service.dart';
+part of 'quiz_api_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'api_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
-class _ApiService implements ApiService {
-  _ApiService(this._dio, {this.baseUrl, this.errorLogger}) {
+class _QuizApiService implements QuizApiService {
+  _QuizApiService(this._dio, {this.baseUrl, this.errorLogger}) {
     baseUrl ??= 'https://opentdb.com/api.php';
   }
 
@@ -20,7 +20,7 @@ class _ApiService implements ApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<QuizModel> fetchQuiz(int amount, String type) async {
+  Future<QuizModel> getQuiz(int amount, String type) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'amount': amount, r'type': type};
     final _headers = <String, dynamic>{};

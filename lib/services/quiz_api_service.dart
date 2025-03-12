@@ -1,16 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:quiz_api_project_wc/core/constants/api_string.dart';
+import 'package:quiz_api_project_wc/core/secret/api_end_point.dart';
+import 'package:quiz_api_project_wc/core/secret/api_string.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 
 import '../features/quiz/data/models/quiz_model.dart';
 
-part 'api_service.g.dart';
+part 'quiz_api_service.g.dart';
 
 @RestApi(baseUrl: ApiString.quizBaseUrl)
-abstract class ApiService {
-  factory ApiService(
+abstract class QuizApiService {
+  factory QuizApiService(
     Dio dio,
   ) {
     dio.options = BaseOptions(
@@ -31,11 +32,11 @@ abstract class ApiService {
       ),
     );
 
-    return _ApiService(dio, baseUrl: dio.options.baseUrl);
+    return _QuizApiService(dio);
   }
 
-  @GET("")
-  Future<QuizModel> fetchQuiz(
+  @GET(ApiEndPoint.getQuiz)
+  Future<QuizModel> getQuiz(
     @Query("amount") int amount,
     @Query("type") String type,
   );

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:quiz_api_project_wc/core/constants/api_string.dart';
+import 'package:quiz_api_project_wc/core/secret/api_end_point.dart';
+import 'package:quiz_api_project_wc/core/secret/api_string.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 
@@ -28,7 +29,7 @@ abstract class WeatherApiService {
     );
     return _WeatherApiService(dio);
   }
-  @GET("weather")
+  @GET(ApiEndPoint.getWeather)
   Future<WeatherModel> getWeather(
     @Query("q") String city,
     @Query("appid") String apiKey,

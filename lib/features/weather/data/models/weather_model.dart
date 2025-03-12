@@ -1,4 +1,4 @@
-import 'package:quiz_api_project_wc/feature/weather/domain/entities/weather.dart';
+import 'package:quiz_api_project_wc/features/weather/domain/entities/weather.dart';
 
 import '../../domain/entities/coord.dart';
 import '../../domain/entities/sys.dart';
@@ -49,7 +49,7 @@ class WeatherModel extends WeatherResponse {
       data['coord'] = coord!.toJson();
     }
     if (weather != null) {
-      data['weather'] = weather!.map((v) => v.toJson()).toList();
+      data['weather'] = weather!.map((v) => v.toString()).toList();
     }
     data['base'] = base;
     if (main != null) {

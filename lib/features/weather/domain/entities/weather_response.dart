@@ -1,8 +1,8 @@
-import 'package:quiz_api_project_wc/feature/weather/domain/entities/coord.dart';
-import 'package:quiz_api_project_wc/feature/weather/domain/entities/sys.dart';
-import 'package:quiz_api_project_wc/feature/weather/domain/entities/w_main.dart';
-import 'package:quiz_api_project_wc/feature/weather/domain/entities/weather.dart';
-import 'package:quiz_api_project_wc/feature/weather/domain/entities/wind.dart';
+import 'package:quiz_api_project_wc/features/weather/domain/entities/coord.dart';
+import 'package:quiz_api_project_wc/features/weather/domain/entities/sys.dart';
+import 'package:quiz_api_project_wc/features/weather/domain/entities/w_main.dart';
+import 'package:quiz_api_project_wc/features/weather/domain/entities/weather.dart';
+import 'package:quiz_api_project_wc/features/weather/domain/entities/wind.dart';
 
 class WeatherResponse {
   Coord? coord;

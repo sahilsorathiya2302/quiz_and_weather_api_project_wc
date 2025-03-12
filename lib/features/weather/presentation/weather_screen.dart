@@ -5,10 +5,11 @@ import 'package:quiz_api_project_wc/core/constants/app_string.dart';
 import 'package:quiz_api_project_wc/core/theme/app_colors.dart';
 import 'package:quiz_api_project_wc/core/ui_components/custom_app_bar.dart';
 import 'package:quiz_api_project_wc/core/ui_components/custom_text.dart';
-import 'package:quiz_api_project_wc/feature/weather/presentation/bloc/weather_bloc.dart';
-import 'package:quiz_api_project_wc/feature/weather/presentation/bloc/weather_event.dart';
-import 'package:quiz_api_project_wc/feature/weather/presentation/bloc/weather_state.dart';
-import 'package:quiz_api_project_wc/feature/weather/presentation/widget/weather_info.dart';
+import 'package:quiz_api_project_wc/features/weather/presentation/bloc/weather_bloc.dart';
+import 'package:quiz_api_project_wc/features/weather/presentation/bloc/weather_state.dart';
+import 'package:quiz_api_project_wc/features/weather/presentation/widget/weather_info.dart';
+
+import 'bloc/weather_event.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});

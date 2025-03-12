@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_api_project_wc/feature/home/widget/start_button.dart';
-import 'package:quiz_api_project_wc/feature/home/widget/weather_button.dart';
+import 'package:quiz_api_project_wc/features/home/widget/start_button.dart';
+import 'package:quiz_api_project_wc/features/home/widget/weather_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

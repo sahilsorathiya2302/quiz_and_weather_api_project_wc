@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:quiz_api_project_wc/feature/weather/data/model/weather_model.dart';
+import 'package:quiz_api_project_wc/core/constants/api_string.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 
-import '../core/constraints/api_string.dart';
+import '../features/weather/data/models/weather_model.dart';
 
 part 'weather_api_service.g.dart';
 

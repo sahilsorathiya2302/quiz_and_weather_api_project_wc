@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_api_project_wc/core/constants/app_string.dart';
 import 'package:quiz_api_project_wc/core/theme/app_text_size.dart';
 import 'package:quiz_api_project_wc/core/ui_components/custom_text.dart';
-import 'package:quiz_api_project_wc/feature/quiz/presentation/bloc/quiz_bloc.dart';
-import 'package:quiz_api_project_wc/feature/quiz/presentation/bloc/quiz_event.dart';
+import 'package:quiz_api_project_wc/features/quiz/presentation/bloc/quiz_bloc.dart';
+import 'package:quiz_api_project_wc/features/quiz/presentation/bloc/quiz_event.dart';
 
 import '../../../../core/theme/app_colors.dart';
 

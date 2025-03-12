@@ -1,6 +1,6 @@
 import 'package:fpdart/fpdart.dart';
 
-import '../failure/failure.dart';
+import '../failures/failure.dart';
 
 /// Generic UseCase interface for all use cases
 abstract interface class UseCase<SuccessType, Param> {

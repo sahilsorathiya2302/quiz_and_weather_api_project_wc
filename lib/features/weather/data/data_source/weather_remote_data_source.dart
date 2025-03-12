@@ -1,4 +1,4 @@
-import 'package:quiz_api_project_wc/feature/weather/domain/entities/weather_response.dart';
+import 'package:quiz_api_project_wc/features/weather/domain/entities/weather_response.dart';
 import 'package:quiz_api_project_wc/services/weather_api_service.dart';
 
 class WeatherRemoteDataSource {

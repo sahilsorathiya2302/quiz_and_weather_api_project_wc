@@ -1,4 +1,4 @@
-import 'package:quiz_api_project_wc/feature/quiz/domain/entities/results.dart';
+import 'package:quiz_api_project_wc/features/quiz/domain/entities/results.dart';
 
 class QuizResponse {
   int? responseCode;

@@ -6,11 +6,11 @@ import 'package:retrofit/http.dart';
 
 import '../features/quiz/data/models/quiz_model.dart';
 
-part 'api_services.g.dart';
+part 'api_service.g.dart';
 
 @RestApi(baseUrl: ApiString.quizBaseUrl)
-abstract class ApiServices {
-  factory ApiServices(
+abstract class ApiService {
+  factory ApiService(
     Dio dio,
   ) {
     dio.options = BaseOptions(
@@ -31,7 +31,7 @@ abstract class ApiServices {
       ),
     );
 
-    return _ApiServices(dio, baseUrl: dio.options.baseUrl);
+    return _ApiService(dio, baseUrl: dio.options.baseUrl);
   }
 
   @GET("")

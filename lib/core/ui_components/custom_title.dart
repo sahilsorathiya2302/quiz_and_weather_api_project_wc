@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_api_project_wc/core/component/custom_text.dart';
 import 'package:quiz_api_project_wc/core/theme/app_colors.dart';
 import 'package:quiz_api_project_wc/core/theme/app_text_size.dart';
+import 'package:quiz_api_project_wc/core/ui_components/custom_text.dart';
 
 class CustomTitle extends StatelessWidget {
   final double? fontSize;

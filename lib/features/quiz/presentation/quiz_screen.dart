@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_api_project_wc/core/constants/app_string.dart';
-import 'package:quiz_api_project_wc/feature/quiz/presentation/bloc/quiz_bloc.dart';
-import 'package:quiz_api_project_wc/feature/quiz/presentation/bloc/quiz_state.dart';
-import 'package:quiz_api_project_wc/feature/quiz/presentation/widget/question_screen.dart';
-import 'package:quiz_api_project_wc/feature/result/result_screen.dart';
+import 'package:quiz_api_project_wc/features/quiz/presentation/bloc/quiz_bloc.dart';
+import 'package:quiz_api_project_wc/features/quiz/presentation/bloc/quiz_state.dart';
+import 'package:quiz_api_project_wc/features/quiz/presentation/widget/question_screen.dart';
+import 'package:quiz_api_project_wc/features/result/result_screen.dart';
 
 import '../../../core/ui_components/custom_app_bar.dart';
 import 'bloc/quiz_event.dart';

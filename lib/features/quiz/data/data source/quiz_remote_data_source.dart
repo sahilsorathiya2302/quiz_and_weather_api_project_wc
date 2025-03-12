@@ -1,8 +1,8 @@
-import 'package:quiz_api_project_wc/feature/quiz/domain/entities/quiz_response.dart';
-import 'package:quiz_api_project_wc/services/api_services.dart';
+import 'package:quiz_api_project_wc/features/quiz/domain/entities/quiz_response.dart';
+import 'package:quiz_api_project_wc/services/api_service.dart';
 
 class QuizRemoteDataSource {
-  final ApiServices apiServices;
+  final ApiService apiServices;
 
   QuizRemoteDataSource({required this.apiServices});
 

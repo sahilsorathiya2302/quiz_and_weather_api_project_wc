@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_api_project_wc/feature/quiz/presentation/widget/navigation_button.dart';
-import 'package:quiz_api_project_wc/feature/quiz/presentation/widget/question_widget.dart';
+import 'package:quiz_api_project_wc/features/quiz/presentation/widget/navigation_button.dart';
+import 'package:quiz_api_project_wc/features/quiz/presentation/widget/question_widget.dart';
 
 import '../bloc/quiz_state.dart';
 

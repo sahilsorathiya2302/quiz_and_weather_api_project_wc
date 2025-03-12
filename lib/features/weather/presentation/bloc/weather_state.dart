@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:quiz_api_project_wc/feature/weather/domain/entities/weather_response.dart';
+import 'package:quiz_api_project_wc/features/weather/domain/entities/weather_response.dart';
 
 sealed class WeatherState extends Equatable {
   @override

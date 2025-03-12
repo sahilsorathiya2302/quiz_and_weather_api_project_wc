@@ -1,7 +1,7 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:quiz_api_project_wc/core/failures/failure.dart';
-import 'package:quiz_api_project_wc/feature/weather/domain/entities/weather_response.dart';
-import 'package:quiz_api_project_wc/feature/weather/domain/repositories/weather_repository.dart';
+import 'package:quiz_api_project_wc/features/weather/domain/entities/weather_response.dart';
+import 'package:quiz_api_project_wc/features/weather/domain/repositories/weather_repository.dart';
 
 import '../data_source/weather_remote_data_source.dart';
 

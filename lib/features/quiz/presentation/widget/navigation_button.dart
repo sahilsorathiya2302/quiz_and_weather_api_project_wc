@@ -23,25 +23,23 @@ class NavigationButton extends StatefulWidget {
 }
 
 class _NavigationButtonState extends State<NavigationButton> {
-  void _nextQuestion() {
+  void _nextQuestion(BuildContext context) {
     if (widget.currentIndex < widget.state.quizResponse.results!.length - 1) {
-      setState(() {
-        widget.currentIndex + 1;
-      });
-
+      context.read<QuizBloc>().add(NextQuestionEvent());
       widget.pageController.nextPage(
-          duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeIn,
+      );
     }
   }
 
-  void _prevQuestion() {
+  void _prevQuestion(BuildContext context) {
     if (widget.currentIndex > 0) {
-      setState(() {
-        widget.currentIndex - 1;
-      });
-
+      context.read<QuizBloc>().add(PreviousQuestionEvent());
       widget.pageController.previousPage(
-          duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeIn,
+      );
     }
   }
 
@@ -58,15 +56,16 @@ class _NavigationButtonState extends State<NavigationButton> {
         children: [
           if (widget.currentIndex > 0)
             ElevatedButton(
-              onPressed: _prevQuestion,
+              onPressed: () {
+                _prevQuestion(context);
+              },
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.blueAccent,
+                backgroundColor: AppColors.orange,
               ),
               child: CustomText(
-                text: AppString.previous,
-                fontSize: AppTextSize.s16,
-                color: Colors.white,
-              ),
+                  text: AppString.previous,
+                  fontSize: AppTextSize.s16,
+                  color: AppColors.black),
             )
           else
             const SizedBox(width: 80), // Empty space for alignment
@@ -80,14 +79,16 @@ class _NavigationButtonState extends State<NavigationButton> {
           if (widget.currentIndex <
               widget.state.quizResponse.results!.length - 1)
             ElevatedButton(
-              onPressed: _nextQuestion,
+              onPressed: () {
+                _nextQuestion(context);
+              },
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.blueAccent,
+                backgroundColor: AppColors.orange,
               ),
               child: CustomText(
                 text: AppString.next,
                 fontSize: AppTextSize.s16,
-                color: Colors.white,
+                color: AppColors.black,
               ),
             )
           else

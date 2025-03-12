@@ -22,10 +22,10 @@ class MyApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider<QuizBloc>(
-            create: (context) => getIt(),
+            create: (context) => getIt<QuizBloc>(),
           ),
           BlocProvider<WeatherBloc>(
-            create: (context) => getIt(),
+            create: (context) => getIt<WeatherBloc>(),
           ),
         ],
         child: GetMaterialApp(

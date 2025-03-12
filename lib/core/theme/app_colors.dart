@@ -7,5 +7,6 @@ class AppColors {
   static Color blueAccent = Colors.blue.shade100;
   static Color red = Colors.red;
   static Color orange = Colors.orange.shade200;
-  static Color green = Colors.green;
+  static Color green = Colors.green.shade200;
+  static Color grey = Colors.grey;
 }

@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:html_unescape/html_unescape.dart'; // For decoding HTML entities
+import 'package:quiz_api_project_wc/core/constants/app_string.dart';
 import 'package:quiz_api_project_wc/core/usecase/use_case.dart';
 
 import 'quiz_event.dart';
@@ -7,35 +8,67 @@ import 'quiz_state.dart';
 
 class QuizBloc extends Bloc<QuizEvent, QuizState> {
   final UseCase useCase;
-  final HtmlUnescape unescape = HtmlUnescape(); // Initialize HTML decoder
+  final HtmlUnescape unescape = HtmlUnescape();
 
   QuizBloc(this.useCase) : super(QuizInitial()) {
     on<FetchQuiz>(_onFetchQuiz);
+    on<NextQuestionEvent>(_onNextQuestion);
+    on<PreviousQuestionEvent>(_onPreviousQuestion);
     on<SelectAnswer>(_onSelectAnswer);
     on<SubmitQuiz>(_onSubmitQuiz);
   }
 
-  // Handle FetchQuiz event
   Future<void> _onFetchQuiz(FetchQuiz event, Emitter<QuizState> emit) async {
     emit(QuizLoading()); // Emit loading state
 
     final result = await useCase.call(
       QuizParam(amount: event.amount, type: event.type),
-    ); // Call use case
+    );
 
     result.fold(
       (error) => emit(
-          QuizError(errorMessage: error.message)), // On error, emit QuizError
+          QuizError(errorMessage: error.message)), // Emit QuizError on failure
       (quizResponse) {
         emit(QuizLoaded(
+          0,
           quizResponse: quizResponse,
-          selectedAnswers: {}, // Initialize as empty map
+          selectedAnswers: {},
         ));
       },
     );
   }
 
-  // Handle SelectAnswer event
+  void _onNextQuestion(NextQuestionEvent event, Emitter<QuizState> emit) {
+    if (state is QuizLoaded) {
+      final currentState = state as QuizLoaded;
+      final newIndex = currentState.currentIndex! + 1;
+
+      if (newIndex < currentState.quizResponse.results!.length) {
+        emit(QuizLoaded(
+          newIndex,
+          quizResponse: currentState.quizResponse,
+          selectedAnswers: currentState.selectedAnswers,
+        ));
+      }
+    }
+  }
+
+  void _onPreviousQuestion(
+      PreviousQuestionEvent event, Emitter<QuizState> emit) {
+    if (state is QuizLoaded) {
+      final currentState = state as QuizLoaded;
+      final newIndex = currentState.currentIndex! - 1;
+
+      if (newIndex >= 0) {
+        emit(QuizLoaded(
+          newIndex,
+          quizResponse: currentState.quizResponse,
+          selectedAnswers: currentState.selectedAnswers,
+        ));
+      }
+    }
+  }
+
   void _onSelectAnswer(SelectAnswer event, Emitter<QuizState> emit) {
     if (state is QuizLoaded) {
       final currentState = state as QuizLoaded;
@@ -46,13 +79,13 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
           event.selectedAnswer.trim().toLowerCase();
 
       emit(QuizLoaded(
+        currentState.currentIndex,
         quizResponse: currentState.quizResponse,
         selectedAnswers: updatedAnswers,
       ));
     }
   }
 
-  // Handle SubmitQuiz event
   void _onSubmitQuiz(SubmitQuiz event, Emitter<QuizState> emit) {
     if (state is QuizLoaded) {
       final currentState = state as QuizLoaded;
@@ -62,7 +95,7 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
       int correctCount = 0;
 
       if (questions == null || questions.isEmpty) {
-        emit(QuizError(errorMessage: "No questions available."));
+        emit(QuizError(errorMessage: AppString.noQuestions));
         return;
       }
 
@@ -85,13 +118,13 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
 
       String performanceMessage;
       if (percentage >= 90) {
-        performanceMessage = "Excellent Performance! You're a Quiz Master! 🏆";
+        performanceMessage = AppString.excellent;
       } else if (percentage >= 75) {
-        performanceMessage = "Great Job! Keep it up! 🎉";
+        performanceMessage = AppString.greatJob;
       } else if (percentage >= 50) {
-        performanceMessage = "Good effort! Try again to improve! 👍";
+        performanceMessage = AppString.goodEffort;
       } else {
-        performanceMessage = "😢 Keep practicing! You'll get better!";
+        performanceMessage = AppString.keepPracticing;
       }
 
       emit(QuizResult(

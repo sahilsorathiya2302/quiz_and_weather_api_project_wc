@@ -25,8 +25,8 @@ void init() {
       () => ApiService(getIt<Dio>(instanceName: AppString.quiz)));
   getIt.registerLazySingleton<QuizRemoteDataSource>(
       () => QuizRemoteDataSource(apiServices: getIt<ApiService>()));
-  // getIt.registerLazySingleton<QuizRepositoriesImpl>(
-  //     () => QuizRepositoriesImpl(quizRemote: getIt<QuizRemote>()));
+  getIt.registerLazySingleton<QuizRepositoryImpl>(() =>
+      QuizRepositoryImpl(quizRemoteDataSource: getIt<QuizRemoteDataSource>()));
 
   getIt.registerLazySingleton<UseCaseImpl>(
       () => UseCaseImpl(quizRepository: getIt<QuizRepositoryImpl>()));

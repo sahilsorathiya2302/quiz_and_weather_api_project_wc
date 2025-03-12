@@ -15,6 +15,10 @@ class FetchQuiz extends QuizEvent {
   List<Object?> get props => [amount, type];
 }
 
+class NextQuestionEvent extends QuizEvent {}
+
+class PreviousQuestionEvent extends QuizEvent {}
+
 class SelectAnswer extends QuizEvent {
   final int questionIndex;
   final String selectedAnswer;

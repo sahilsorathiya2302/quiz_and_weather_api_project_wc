@@ -56,4 +56,16 @@ class AppString {
   static const String errorMessage = "Please select a city";
   static const String next = "Next";
   static const String previous = "Previous";
+
+  //Performance
+
+  static const String excellent =
+      "Excellent Performance! You're a Quiz Master! 🏆";
+
+  static const String greatJob = "Great Job! Keep it up! 🎉";
+
+  static const String goodEffort = "Good effort! Try again to improve! 👍";
+
+  static const String keepPracticing = "😢 Keep practicing! You'll get better!";
+  static const String noQuestions = "No questions available.";
 }

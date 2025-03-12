@@ -29,10 +29,10 @@ void init() {
       () => WeatherApiService(getIt<Dio>(instanceName: AppString.weather)));
 
   getIt.registerLazySingleton<QuizRemoteDataSource>(
-      () => QuizRemoteDataSource(quizApiService: getIt()));
+      () => QuizRemoteDataSourceImpl(quizApiService: getIt()));
 
   getIt.registerLazySingleton<WeatherRemoteDataSource>(
-      () => WeatherRemoteDataSource(weatherApiService: getIt()));
+      () => WeatherRemoteDataSourceImpl(weatherApiService: getIt()));
 
   getIt.registerLazySingleton<QuizRepository>(
       () => QuizRepositoryImpl(quizRemoteDataSource: getIt()));

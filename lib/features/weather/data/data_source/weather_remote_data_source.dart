@@ -1,11 +1,16 @@
 import 'package:quiz_api_project_wc/features/weather/domain/entities/weather_response.dart';
 import 'package:quiz_api_project_wc/services/weather_api_service.dart';
 
-class WeatherRemoteDataSource {
+abstract interface class WeatherRemoteDataSource {
+  Future<WeatherResponse> getWeather(String city);
+}
+
+class WeatherRemoteDataSourceImpl extends WeatherRemoteDataSource {
   final WeatherApiService weatherApiService;
 
-  WeatherRemoteDataSource({required this.weatherApiService});
+  WeatherRemoteDataSourceImpl({required this.weatherApiService});
 
+  @override
   Future<WeatherResponse> getWeather(String city) {
     return weatherApiService.getWeather(
       city,

@@ -2,12 +2,10 @@ import 'package:fpdart/fpdart.dart';
 
 import '../failures/failure.dart';
 
-/// Generic UseCase interface for all use cases
 abstract interface class UseCase<SuccessType, Param> {
   Future<Either<Failure, SuccessType>> call(Param param);
 }
 
-/// Use this class when no parameters are required
 class NoParam {}
 
 class QuizParam {

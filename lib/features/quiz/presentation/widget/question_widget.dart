@@ -70,9 +70,9 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                       const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                   margin: const EdgeInsets.symmetric(vertical: 6),
                   decoration: BoxDecoration(
-                    color: isSelected ? AppColors.orange : Colors.white,
+                    color: isSelected ? AppColors.orange : AppColors.bgColor,
                     border: Border.all(
-                      color: isSelected ? AppColors.orange : Colors.grey,
+                      color: isSelected ? AppColors.orange : AppColors.grey,
                       width: 2,
                     ),
                     borderRadius: BorderRadius.circular(10),
@@ -80,7 +80,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                   child: CustomText(
                     text: option,
                     fontSize: AppTextSize.s16,
-                    color: isSelected ? Colors.black : AppColors.black,
+                    color: isSelected ? AppColors.black : AppColors.black,
                   ),
                 ),
               );

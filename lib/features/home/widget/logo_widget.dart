@@ -21,7 +21,7 @@ class LogoWidget extends StatelessWidget {
         ),
         20.sizeHeight,
         CustomText(
-          text: "Play Quiz And Check Weather",
+          text: AppString.homeTitle,
           fontSize: AppTextSize.s18,
         ),
       ],

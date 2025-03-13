@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_api_project_wc/core/constants/app_string.dart';
+import 'package:quiz_api_project_wc/core/ui_components/custom_text.dart';
 import 'package:quiz_api_project_wc/features/quiz/presentation/bloc/quiz_bloc.dart';
 import 'package:quiz_api_project_wc/features/quiz/presentation/bloc/quiz_state.dart';
 import 'package:quiz_api_project_wc/features/quiz/presentation/widget/question_screen.dart';
@@ -39,7 +40,9 @@ class _QuizScreenState extends State<QuizScreen> {
               state: state,
             );
           } else if (state is QuizError) {
-            return Center(child: Text(state.errorMessage));
+            return Center(
+              child: CustomText(text: state.errorMessage),
+            );
           } else if (state is QuizResult) {
             return ResultScreen(
               correctAnswers: state.correctAnswers,
@@ -47,7 +50,9 @@ class _QuizScreenState extends State<QuizScreen> {
               performanceMessage: state.performanceMessage,
             );
           }
-          return Center(child: Text("Unexpected Error"));
+          return Center(
+            child: CustomText(text: AppString.unexpectedError),
+          );
         },
       ),
     );

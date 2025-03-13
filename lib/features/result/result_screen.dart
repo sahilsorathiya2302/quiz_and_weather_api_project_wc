@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quiz_api_project_wc/core/constants/app_sized_box_extension.dart';
 import 'package:quiz_api_project_wc/core/routes/app_routes_name.dart';
+import 'package:quiz_api_project_wc/core/theme/app_padding_size.dart';
 import 'package:quiz_api_project_wc/core/theme/app_text_size.dart';
 import 'package:quiz_api_project_wc/core/ui_components/custom_button.dart';
 import 'package:quiz_api_project_wc/features/result/widget/score_card_widget.dart';
@@ -28,7 +30,8 @@ class ResultScreen extends StatelessWidget {
       body: Container(
         height: 800,
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+        padding: EdgeInsets.symmetric(
+            horizontal: AppPaddingSize.ph20, vertical: AppPaddingSize.pw50),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [Colors.blueGrey.shade900, Colors.teal.shade400],
@@ -47,7 +50,7 @@ class ResultScreen extends StatelessWidget {
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
-              const SizedBox(height: 25),
+              25.sizeHeight,
               ScoreCardWidget(
                 correctAnswers: correctAnswers,
                 totalQuestions: totalQuestions,

@@ -26,7 +26,8 @@ class AppString {
     "Gaya"
   ];
 
-  static const String application = "QuizTemp";
+  static const String application = "QuizTemp Application";
+  static const String homeTitle = "Play Quiz And Check Weather";
   static const String home = "Home";
   static const String startQuiz = "Play Quiz";
   static const String quiz = "Quiz";
@@ -56,6 +57,7 @@ class AppString {
   static const String errorMessage = "Please select a city";
   static const String next = "Next";
   static const String previous = "Previous";
+  static const String unexpectedError = "Unexpected Error";
 
   //Performance
 

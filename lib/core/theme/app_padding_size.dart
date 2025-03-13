@@ -9,4 +9,6 @@ class AppPaddingSize {
   static double pw15 = 15.w;
   static double ph20 = 20.h;
   static double pw20 = 20.w;
+  static double ph50 = 50.w;
+  static double pw50 = 50.w;
 }

@@ -12,16 +12,15 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
   WeatherBloc(this.getWeatherUseCase) : super(WeatherInitial()) {
     on<FetchWeather>((event, emit) async {
-      emit(WeatherLoadingState()); // Emit loading state
+      emit(WeatherLoadingState());
 
-      final result = await getWeatherUseCase
-          .call(WeatherParam(city: event.city)); // Pass city parameter
+      final result =
+          await getWeatherUseCase.call(WeatherParam(city: event.city));
 
       result.fold(
-        (Failure error) => emit(
-            WeatherErrorState(errorMessage: error.message)), // Handle error
-        (WeatherResponse weather) => emit(
-            WeatherLoadedState(weatherResponse: weather)), // Handle success
+        (Failure error) => emit(WeatherErrorState(errorMessage: error.message)),
+        (WeatherResponse weather) =>
+            emit(WeatherLoadedState(weatherResponse: weather)),
       );
     });
   }

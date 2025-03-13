@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_api_project_wc/features/home/widget/logo_widget.dart';
-import 'package:quiz_api_project_wc/features/home/widget/start_button.dart';
+import 'package:quiz_api_project_wc/features/home/widget/quiz_button.dart';
 import 'package:quiz_api_project_wc/features/home/widget/weather_button.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           LogoWidget(),
-          Center(child: StartButton()),
+          Center(child: QuizButton()),
           WeatherButton(),
         ],
       ),

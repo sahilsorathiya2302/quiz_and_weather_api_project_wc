@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_api_project_wc/core/constants/app_sized_box_extension.dart';
 import 'package:quiz_api_project_wc/core/constants/app_string.dart';
 import 'package:quiz_api_project_wc/core/theme/app_text_size.dart';
 
@@ -43,15 +44,14 @@ class _ScoreCardWidgetState extends State<ScoreCardWidget> {
             fontSize: AppTextSize.s24,
             color: Colors.black87,
           ),
-          const SizedBox(height: 12),
+          12.sizeHeight,
           CustomTitle(
             text: "${widget.correctAnswers} / ${widget.totalQuestions}",
             fontSize: AppTextSize.s26,
             fontWeight: FontWeight.bold,
             color: Colors.teal.shade900,
           ),
-          const SizedBox(height: 12),
-          const SizedBox(height: 12),
+          12.sizeHeight,
           CustomTitle(
             text: widget.performanceMessage,
             fontSize: AppTextSize.s18,

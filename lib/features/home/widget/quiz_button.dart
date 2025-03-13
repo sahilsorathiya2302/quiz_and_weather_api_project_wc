@@ -6,14 +6,14 @@ import 'package:quiz_api_project_wc/core/routes/app_routes_name.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/ui_components/custom_button.dart';
 
-class StartButton extends StatefulWidget {
-  const StartButton({super.key});
+class QuizButton extends StatefulWidget {
+  const QuizButton({super.key});
 
   @override
-  State<StartButton> createState() => _StartButtonState();
+  State<QuizButton> createState() => _QuizButtonState();
 }
 
-class _StartButtonState extends State<StartButton> {
+class _QuizButtonState extends State<QuizButton> {
   @override
   Widget build(BuildContext context) {
     return CustomButton(

@@ -1,16 +1,16 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:html_unescape/html_unescape.dart'; // For decoding HTML entities
 import 'package:quiz_api_project_wc/core/constants/app_string.dart';
-import 'package:quiz_api_project_wc/core/usecase/use_case.dart';
+import 'package:quiz_api_project_wc/core/usecase/quiz_use_case.dart';
 
 import 'quiz_event.dart';
 import 'quiz_state.dart';
 
 class QuizBloc extends Bloc<QuizEvent, QuizState> {
-  final UseCase useCase;
+  final QuizUseCase quizUseCase;
   final HtmlUnescape unescape = HtmlUnescape();
 
-  QuizBloc(this.useCase) : super(QuizInitial()) {
+  QuizBloc(this.quizUseCase) : super(QuizInitial()) {
     on<FetchQuiz>(_onFetchQuiz);
     on<NextQuestionEvent>(_onNextQuestion);
     on<PreviousQuestionEvent>(_onPreviousQuestion);
@@ -21,7 +21,7 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
   Future<void> _onFetchQuiz(FetchQuiz event, Emitter<QuizState> emit) async {
     emit(QuizLoading()); // Emit loading state
 
-    final result = await useCase.call(
+    final result = await quizUseCase.call(
       QuizParam(amount: event.amount, type: event.type),
     );
 

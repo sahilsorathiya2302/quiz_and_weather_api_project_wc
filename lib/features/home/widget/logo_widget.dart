@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_api_project_wc/core/constants/app_sized_box_extension.dart';
 import 'package:quiz_api_project_wc/core/theme/app_text_size.dart';
 
 import '../../../core/constants/app_string.dart';
@@ -9,12 +10,21 @@ class LogoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      maxRadius: 50,
-      child: CustomText(
-        text: AppString.t,
-        fontSize: AppTextSize.s26,
-      ),
+    return Column(
+      children: [
+        CircleAvatar(
+          maxRadius: 50,
+          child: CustomText(
+            text: AppString.logoText,
+            fontSize: AppTextSize.s26,
+          ),
+        ),
+        20.sizeHeight,
+        CustomText(
+          text: "Play Quiz And Check Weather",
+          fontSize: AppTextSize.s18,
+        ),
+      ],
     );
   }
 }

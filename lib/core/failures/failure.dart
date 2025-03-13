@@ -5,3 +5,7 @@ class Failure {
   @override
   String toString() => 'Failure(message:$message)';
 }
+
+class ServerConfig extends Failure {
+  ServerConfig({required super.message});
+}

@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:quiz_api_project_wc/core/secret/api_end_point.dart';
-import 'package:quiz_api_project_wc/core/secret/api_string.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 
+import '../core/secret/api_string.dart';
 import '../features/quiz/data/models/quiz_model.dart';
+import 'interceptors.dart';
 
 part 'quiz_api_service.g.dart';
 
@@ -22,7 +23,8 @@ abstract class QuizApiService {
       contentType: ApiString.contentType,
     );
 
-    // Add logging interceptor (only in debug mode)
+    final interceptor = DefaultInterceptor();
+    dio.interceptors.add(interceptor);
     dio.interceptors.add(
       PrettyDioLogger(
         requestHeader: true,

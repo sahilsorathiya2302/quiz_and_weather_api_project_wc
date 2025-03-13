@@ -33,11 +33,10 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgColor,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CustomTitle(text: AppString.quizApplication),
-        ],
+      body: Center(
+        child: CustomTitle(
+          text: AppString.application,
+        ),
       ),
     );
   }

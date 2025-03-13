@@ -26,13 +26,13 @@ class AppString {
     "Gaya"
   ];
 
-  static const String quizApplication = "Quiz Application";
+  static const String application = "QuizTemp";
   static const String home = "Home";
   static const String startQuiz = "Play Quiz";
   static const String quiz = "Quiz";
   static const String checkWeather = "Check weather";
   static const String weather = "Weather";
-  static const String t = "T";
+  static const String logoText = "QW";
   static const String textMaster = "Test Master";
   static const String questions = "Questions";
   static const String ten = "10";

@@ -19,34 +19,35 @@ import '../features/weather/domain/use_cases/get_weather_use_case.dart';
 final getIt = GetIt.instance;
 
 void init() {
+  ///Quiz
   getIt.registerSingleton<Dio>(Dio(), instanceName: AppString.quiz);
-  getIt.registerSingleton<Dio>(Dio(), instanceName: AppString.weather);
-
   getIt.registerLazySingleton<QuizApiService>(
       () => QuizApiService(getIt<Dio>(instanceName: AppString.quiz)));
+  getIt.registerLazySingleton<QuizRemoteDataSource>(
+      () => QuizRemoteDataSourceImpl(quizApiService: getIt()));
+  getIt.registerLazySingleton<QuizRepository>(
+      () => QuizRepositoryImpl(quizRemoteDataSource: getIt()));
+
+  getIt.registerLazySingleton<UseCase>(
+      () => GetQuizUseCase(quizRepository: getIt()));
+  getIt.registerFactory<QuizBloc>(() => QuizBloc(getIt()));
+
+  ///Weather
+  getIt.registerSingleton<Dio>(Dio(), instanceName: AppString.weather);
 
   getIt.registerLazySingleton<WeatherApiService>(
       () => WeatherApiService(getIt<Dio>(instanceName: AppString.weather)));
 
-  getIt.registerLazySingleton<QuizRemoteDataSource>(
-      () => QuizRemoteDataSourceImpl(quizApiService: getIt()));
-
   getIt.registerLazySingleton<WeatherRemoteDataSource>(
       () => WeatherRemoteDataSourceImpl(weatherApiService: getIt()));
-
-  getIt.registerLazySingleton<QuizRepository>(
-      () => QuizRepositoryImpl(quizRemoteDataSource: getIt()));
 
   getIt.registerLazySingleton<WeatherRepository>(
       () => WeatherRepositoryImpl(weatherRemoteDataSource: getIt()));
 
-  getIt.registerLazySingleton<UseCase>(
-      () => GetQuizUseCase(quizRepository: getIt()));
-
   getIt.registerLazySingleton<GetWeatherUseCase>(
       () => GetWeatherUseCase(weatherRepository: getIt()));
 
-  getIt.registerFactory<QuizBloc>(() => QuizBloc(getIt()));
-
-  getIt.registerFactory<WeatherBloc>(() => WeatherBloc(getIt()));
+  getIt.registerFactory<WeatherBloc>(
+    () => WeatherBloc(getIt()),
+  );
 }

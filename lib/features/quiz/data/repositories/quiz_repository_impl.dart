@@ -1,6 +1,6 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:quiz_api_project_wc/core/failures/failure.dart';
-import 'package:quiz_api_project_wc/features/quiz/data/data%20source/quiz_remote_data_source.dart';
+import 'package:quiz_api_project_wc/features/quiz/data/repositories/quiz_remote_data_source.dart';
 import 'package:quiz_api_project_wc/features/quiz/domain/entities/quiz_response.dart';
 import 'package:quiz_api_project_wc/features/quiz/domain/repository/quiz_repository.dart';
 

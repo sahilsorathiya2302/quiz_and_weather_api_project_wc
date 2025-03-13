@@ -10,7 +10,7 @@ part of 'quiz_api_service.dart';
 
 class _QuizApiService implements QuizApiService {
   _QuizApiService(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'https://opentdb.com/api.php';
+    baseUrl ??= 'https://opentdb.com/';
   }
 
   final Dio _dio;
@@ -29,7 +29,7 @@ class _QuizApiService implements QuizApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '',
+            'api.php',
             queryParameters: queryParameters,
             data: _data,
           )

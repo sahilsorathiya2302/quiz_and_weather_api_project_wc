@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_api_project_wc/core/constants/app_string.dart';
 import 'package:quiz_api_project_wc/core/routes/app_routes_name.dart';
-
-import '../../core/theme/app_colors.dart';
-import '../../core/ui_components/custom_app_bar.dart';
-import '../../core/ui_components/custom_button.dart';
+import 'package:quiz_api_project_wc/core/theme/app_colors.dart';
+import 'package:quiz_api_project_wc/core/ui_components/custom_app_bar.dart';
+import 'package:quiz_api_project_wc/core/ui_components/custom_button.dart';
 
 class CityPickScreen extends StatefulWidget {
   const CityPickScreen({super.key});
@@ -66,6 +65,7 @@ class _CityPickScreenState extends State<CityPickScreen> {
                     backgroundColor: Colors.red, colorText: Colors.white);
               }
             },
+            color: AppColors.blueAccent,
             text: AppString.submit,
           )
         ],

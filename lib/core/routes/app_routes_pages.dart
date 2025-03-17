@@ -7,6 +7,7 @@ import 'package:quiz_api_project_wc/features/splash/splash_screen.dart';
 import 'package:quiz_api_project_wc/features/weather/presentation/weather_screen.dart';
 
 class AppRoutesPages {
+  AppRoutesPages._();
   static List<GetPage> pages = [
     GetPage(
       name: AppRoutesName.splashScreen,

@@ -1,6 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppPaddingSize {
+  AppPaddingSize._();
   static double ph10 = 10.h;
   static double pw10 = 10.w;
   static double ph12 = 12.h;

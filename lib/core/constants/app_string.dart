@@ -1,4 +1,6 @@
 class AppString {
+  AppString._();
+
   static List<String> cities = [
     "Ahmedabad",
     "Surat",

@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:quiz_api_project_wc/core/constants/app_string.dart';
-import 'package:quiz_api_project_wc/core/usecase/quiz_use_case.dart';
-import 'package:quiz_api_project_wc/core/usecase/weather_use_case.dart';
 import 'package:quiz_api_project_wc/features/quiz/data/repositories/quiz_remote_repo.dart';
 import 'package:quiz_api_project_wc/features/quiz/data/repositories/quiz_repository_impl.dart';
 import 'package:quiz_api_project_wc/features/quiz/domain/repository/quiz_repository.dart';
@@ -29,8 +27,7 @@ void init() {
   getIt.registerLazySingleton<QuizRepository>(
       () => QuizRepositoryImpl(quizRemoteRepo: getIt()));
 
-  getIt.registerLazySingleton<QuizUseCase>(
-      () => GetQuizUseCase(quizRepository: getIt()));
+  getIt.registerLazySingleton(() => GetQuizUseCase(quizRepository: getIt()));
 
   getIt.registerFactory<QuizBloc>(() => QuizBloc(getIt()));
 
@@ -43,7 +40,7 @@ void init() {
   getIt.registerLazySingleton<WeatherRepository>(
       () => WeatherRepositoryImpl(weatherRemoteRepo: getIt()));
 
-  getIt.registerLazySingleton<WeatherUseCase>(
+  getIt.registerLazySingleton(
     () => GetWeatherUseCase(
       weatherRepository: getIt(),
     ),

@@ -1,4 +1,5 @@
 class ApiString {
+  ApiString._();
   static const String quizBaseUrl = "https://opentdb.com/";
   static const String contentType = "application/json";
   static const String weatherBaseUrl =
